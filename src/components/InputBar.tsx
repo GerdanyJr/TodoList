@@ -9,7 +9,7 @@ export default function InputBar({onAddTodo} : {onAddTodo: (title:string) => voi
     }
 
     return (
-        <form className="flex flex-row mb-3 items-center" onSubmit={(e) =>  e.preventDefault() }>
+        <form className="flex flex-row mb-3 items-center w-2/3 max-md:w-4/5" onSubmit={(e) =>  e.preventDefault() }>
             <AiOutlineSearch className="text-2xl absolute ml-1.5 text-slate-500" />
             <input type="text" placeholder="Insira uma tarefa"
                 name="input" className="text-slate-950 rounded-full w-full p-2 pl-8"

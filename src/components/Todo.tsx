@@ -31,8 +31,7 @@ export default function Todo({ props, onDeleteTodo, onEditTodo, onCheckTodo }: {
                 }} />
                 <div className='flex text-xl '>
                     <button type="button" className='text-green-500 w-6 active:text-base' onClick={() => {
-                        props = {...props, title:input}
-                        onEditTodo(props.id, props);
+                        (input.trim() !== '')?onEditTodo(props.id, {...props, title:input}):setInput(props.title);
                         setIsEditing(false);
                     }}><FcCheckmark /></button>
                     <button type="button" className='text-red-600 w-5 active:text-base' onClick={() => setIsEditing(false)}><AiOutlineClose /></button>

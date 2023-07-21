@@ -2,10 +2,9 @@ import Header from "./components/Header"
 import List, { todoProps } from "./components/TodoList"
 import InputBar from "./components/InputBar"
 import { useState } from "react";
-import { data } from "./components/data";
 
 export function App() {
-  const [todos, setTodos] = useState(data);
+  const [todos, setTodos] = useState<todoProps[]>([]);
   let nextId: number = todos.length;
 
   function handleEditClick(id: number, newTodo: todoProps): void {
@@ -34,20 +33,27 @@ export function App() {
 
   return (
     <article className="h-screen w-screen min-w-fit bg-zinc-800 flex flex-col items-center justify-center">
-      <div className="h-1/2 w-1/3 max-xl:w-1/2 text-zinc-200">
+      <div className="h-3/4 w-2/3 max-xl:w-1/2 text-zinc-200 flex flex-col items-center">
         <InputBar
           onAddTodo={handleAddTodo}
         />
-        <Header title="Lista de afazeres" />
-        <div className="border flex flex-col h-full text-slate-100">
-
+        <div className="flex flex-row justify-center h-full w-full gap-3">
           <List
             todoList={todos}
             onEditTodo={handleEditClick}
             onDeleteTodo={handleDeleteClick}
             onCheckTodo={handleCheckClick}
+            completed={false}
+            title="To-do"
           />
-
+          <List
+            todoList={todos}
+            onEditTodo={handleEditClick}
+            onDeleteTodo={handleDeleteClick}
+            onCheckTodo={handleCheckClick}
+            completed={true}
+            title="Did"
+          />
         </div>
       </div>
     </article>
