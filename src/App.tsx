@@ -1,4 +1,3 @@
-import Header from "./components/Header"
 import List, { todoProps } from "./components/TodoList"
 import InputBar from "./components/InputBar"
 import { useState } from "react";
